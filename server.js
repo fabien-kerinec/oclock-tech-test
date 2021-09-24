@@ -1,8 +1,7 @@
 const express = require('express')
 const path = require('path')
+const config = require('./config')
 const app = express()
-
-const port = 3000
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -29,6 +28,6 @@ router.get('/', (req, res) => {
 
 // Demarrage du server nodejs js via l'app express sur un port particulier
 // le port à une valeur par default en cas de non configuration
-app.listen(port || 3000, () => {
-  console.log(`your app is running on port ${port || 3000}`)
+app.listen(config.PORT || 3001, () => {
+  console.log(`your app is running on port ${config.PORT || 3001}`)
 })
