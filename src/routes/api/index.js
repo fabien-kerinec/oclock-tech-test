@@ -1,5 +1,6 @@
 const headers = require('./headers')
 const express = require('express')
+
 const router = express.Router()
 const game = require('./game')
 
@@ -7,7 +8,6 @@ const game = require('./game')
 // ça peut en partis permettre de securiser l'application en cas de besoin
 router.use(headers)
 
-// ouvre la route /api/game
 router.use('/game', game)
 
 module.exports = router
