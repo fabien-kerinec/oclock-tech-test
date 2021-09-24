@@ -5,6 +5,8 @@ const routes = require('./src/routes')
 const app = express()
 
 app.use(express.static(path.join(__dirname, 'public')))
+
+// recupere l'ensemble des route (api et view)
 app.use(routes)
 
 // Demarrage du server nodejs js via l'app express sur un port particulier
