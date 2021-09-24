@@ -2,7 +2,8 @@ require('dotenv').config()
 
 /**
  * @typedef EnvironmentConfiguration
- * @prop {string} PORT the port that we use
+ * @prop {string} APP_PORT port utilisé par l'application
+ * @prop {string} GAME_DURATION le temps max d'une game
  */
 
 /**
