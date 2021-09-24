@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js & npm run scss",
+    "scss": "sass --watch public/scss/main.scss public/css/main.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sass": "^1.42.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }
