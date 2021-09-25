@@ -103,6 +103,6 @@ function countdown(countdown) {
       })
       clearInterval(counter)
     }
-    count = count - 10000
+    count = count - 1000
   }, 1000)
 }
