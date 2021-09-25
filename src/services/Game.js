@@ -33,14 +33,17 @@ class Game {
     if (this.turnedCard.length >= 2) {
       console.log('TODO : CARTE A RETOURNER AVANT DE FAIRE QUOI QUE CE SOIT')
       oldArray = Array.from(this.turnedCard)
+      console.log(this.turnedCard)
       this.Board.unTurned(this.turnedCard)
       this.turnedCard = []
     }
     // Etape 2 : marqué la carte comme tournée
     const turned = this.Board.turnCard(card)
 
-    // Etape 3 : ajouté la carte a l'array
-    this.turnedCard.push(turned)
+    // Etape 3 : ajouté la carte a l'array en verifiant s'il existe
+    if (turned) {
+      this.turnedCard.push(turned)
+    }
 
     // Etape 4 : s'il y a deux carte retournées regarder si elle sont identique
     if (this.turnedCard.length >= 2) {
