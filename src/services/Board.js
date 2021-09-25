@@ -46,6 +46,36 @@ class Board {
       cardArray.splice(randomCardValue, 1)
     }
   }
+  /**
+   * Fonction qui permet de retourner la carte card
+   * @param {number} card
+   */
+  turnCard(card) {
+    const cardToTurn = this.cardsObject[card]
+
+    //verifier si la carte existe ou s'il est déjà retournées
+    if (!cardToTurn || cardToTurn.valid || cardToTurn.turn) {
+      return false
+    }
+
+    this.cardsObject[card].turn = true
+    return cardToTurn
+  }
+
+  /**
+   * Fonction qui permet de valider deux carte identique
+   * @param {array} turnedCard
+   */
+  setValid(validedCard) {
+    validedCard.map((item) => {
+      this.cardsObject[item.id].valid = true
+    })
+  }
+  unTurned(array) {
+    array.map((item) => {
+      this.cardsObject[item.id].turn = false
+    })
+  }
 }
 
 module.exports = Board
