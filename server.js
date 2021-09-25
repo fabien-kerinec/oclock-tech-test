@@ -5,6 +5,8 @@ const config = require('./config')
 const routes = require('./src/routes')
 const app = express()
 
+require('./src/database')
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 // parse application/x-www-form-urlencoded
