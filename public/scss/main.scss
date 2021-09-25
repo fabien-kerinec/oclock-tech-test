@@ -1,0 +1,125 @@
+// j'importe une bibliotheque de mixin
+// elle me sert a definir certains element css redondant afin de garder une unité sur l'ensemble de l'application
+// il suffit de les appeler comme suit :
+// @include nomDeLaMixin();
+// le contenu de la mixin sera alors ajouté à l'endroit ou elle est appelé
+@import 'mixins';
+
+* {
+  box-sizing: border-box;
+}
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // je calcule la taille necessaire a mon board;
+  // on a 36 carte en tout (18 paires) donc 4 ligne de 9
+  // qui font 100px de large
+  // j'y rajoute 5px de marge sur les côté
+  max-width: calc(9 * 100px + 9 * 10px);
+  margin: 0 auto;
+  .item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    img {
+      @include absolute;
+
+      &.front {
+        bottom: unset;
+        &__0 {
+          top: 0;
+        }
+        &__1 {
+          top: -100px;
+        }
+        &__2 {
+          top: -200px;
+        }
+        &__3 {
+          top: -300px;
+        }
+        &__4 {
+          top: -400px;
+        }
+        &__5 {
+          top: -500px;
+        }
+        &__6 {
+          top: -600px;
+        }
+        &__7 {
+          top: -700px;
+        }
+        &__8 {
+          top: -800px;
+        }
+        &__9 {
+          top: -900px;
+        }
+        &__10 {
+          top: -1000px;
+        }
+        &__11 {
+          top: -1100px;
+        }
+        &__12 {
+          top: -1200px;
+        }
+        &__13 {
+          top: -1300px;
+        }
+        &__14 {
+          top: -1400px;
+        }
+        &__15 {
+          top: -1500px;
+        }
+        &__16 {
+          top: -1600px;
+        }
+        &__17 {
+          top: -1700px;
+        }
+      }
+    }
+  }
+}
