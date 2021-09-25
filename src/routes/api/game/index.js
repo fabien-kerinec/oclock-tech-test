@@ -10,13 +10,23 @@ const router = express.Router()
 
 /**
  * permet de creer de consommer une route /api/game.
- * @name get/
+ * @name post/
  * @function
  * @memberof module:routers/~APIRoutes
  * @inner
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/', model.resource.create)
+router.post('/', model.resource.create)
+/**
+ * permet de creer de consommer une route /api/game/reveal.
+ * @name post/
+ * @function
+ * @memberof module:routers/~APIRoutes
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.post('/reveal', model.resource.reveal)
 
 module.exports = router
