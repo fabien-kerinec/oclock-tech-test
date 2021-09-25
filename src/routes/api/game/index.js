@@ -28,5 +28,15 @@ router.post('/', model.resource.create)
  * @param {callback} middleware - Express middleware.
  */
 router.post('/reveal', model.resource.reveal)
+/**
+ * permet de creer de consommer une route /api/game/leaderboard.
+ * @name get/
+ * @function
+ * @memberof module:routers/~APIRoutes
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.get('/leaderboard', model.resource.leaderboard)
 
 module.exports = router

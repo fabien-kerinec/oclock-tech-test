@@ -2,6 +2,8 @@ const { v4: uuidv4 } = require('uuid')
 const config = require('../../config')
 const Board = require('./Board')
 const Data = require('./Data')
+const leaderboardSchema = require('../database/Leaderboard')
+
 class Game {
   constructor() {
     // Crée un id unique pour la game
@@ -50,6 +52,7 @@ class Game {
       if (this.checkTurnedCard()) {
         this.validCard.push(this.turnedCard[0], this.turnedCard[1])
         if (this.validCard.length === config.GAME_PAIR * 2) {
+          const time = User.create({ time: 1234 })
           this.endGame()
           this.statusGame = 'win'
         }
