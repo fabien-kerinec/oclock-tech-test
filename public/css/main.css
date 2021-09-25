@@ -44,79 +44,94 @@ body {
   flex-wrap: wrap;
   max-width: 990px;
   margin: 0 auto;
+  background: #858585;
 }
 .board .item {
   position: relative;
   width: 100px;
   height: 100px;
-  padding: 10px;
   margin: 5px;
   cursor: pointer;
   overflow: hidden;
+  perspective: 1000px;
 }
-.board .item img {
+.board .item .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.board .item .card img {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
 }
-.board .item img.front {
+.board .item .card img.front {
+  transform: rotateY(180deg);
   bottom: unset;
 }
-.board .item img.front__0 {
+.board .item .card img.front.card_0 {
   top: 0;
 }
-.board .item img.front__1 {
+.board .item .card img.front.card_1 {
   top: -100px;
 }
-.board .item img.front__2 {
+.board .item .card img.front.card_2 {
   top: -200px;
 }
-.board .item img.front__3 {
+.board .item .card img.front.card_3 {
   top: -300px;
 }
-.board .item img.front__4 {
+.board .item .card img.front.card_4 {
   top: -400px;
 }
-.board .item img.front__5 {
+.board .item .card img.front.card_5 {
   top: -500px;
 }
-.board .item img.front__6 {
+.board .item .card img.front.card_6 {
   top: -600px;
 }
-.board .item img.front__7 {
+.board .item .card img.front.card_7 {
   top: -700px;
 }
-.board .item img.front__8 {
+.board .item .card img.front.card_8 {
   top: -800px;
 }
-.board .item img.front__9 {
+.board .item .card img.front.card_9 {
   top: -900px;
 }
-.board .item img.front__10 {
+.board .item .card img.front.card_10 {
   top: -1000px;
 }
-.board .item img.front__11 {
+.board .item .card img.front.card_11 {
   top: -1100px;
 }
-.board .item img.front__12 {
+.board .item .card img.front.card_12 {
   top: -1200px;
 }
-.board .item img.front__13 {
+.board .item .card img.front.card_13 {
   top: -1300px;
 }
-.board .item img.front__14 {
+.board .item .card img.front.card_14 {
   top: -1400px;
 }
-.board .item img.front__15 {
+.board .item .card img.front.card_15 {
   top: -1500px;
 }
-.board .item img.front__16 {
+.board .item .card img.front.card_16 {
   top: -1600px;
 }
-.board .item img.front__17 {
+.board .item .card img.front.card_17 {
   top: -1700px;
+}
+.board .item:hover .card {
+  transform: rotateY(180deg);
 }
 
 /*# sourceMappingURL=main.css.map */
