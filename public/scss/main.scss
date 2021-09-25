@@ -43,16 +43,19 @@ body {
 }
 
 .board {
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   // je calcule la taille necessaire a mon board;
   // on a 36 carte en tout (18 paires) donc 4 ligne de 9
   // qui font 100px de large
   // j'y rajoute 5px de marge sur les côté
-  max-width: calc(9 * 100px + 9 * 10px);
+  width: calc(9 * 100px + 9 * 10px);
   margin: 0 auto;
   background: rgb(133, 133, 133);
+  display: none;
+  &.display {
+    display: flex;
+  }
   .item {
     position: relative;
     width: 100px;
@@ -139,5 +142,38 @@ body {
         transform: rotateY(180deg);
       }
     }
+  }
+}
+.progressBar {
+  position: relative;
+  height: 20px;
+
+  width: calc(9 * 100px + 9 * 10px);
+  margin: 0 auto;
+  margin-top: 20px;
+  background: rgb(162, 162, 162);
+  display: none;
+  &.display {
+    display: block;
+  }
+  .bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // transition: width 0.5s linear;
+    &.green {
+      background: rgb(19, 162, 0);
+    }
+    &.orange {
+      background: rgb(208, 125, 0);
+    }
+    &.red {
+      background: rgb(208, 0, 0);
+    }
+  }
+}
+.introduction {
+  &.remove {
+    display: none;
   }
 }

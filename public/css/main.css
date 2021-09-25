@@ -39,12 +39,15 @@ body {
 }
 
 .board {
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 990px;
+  width: 990px;
   margin: 0 auto;
   background: #858585;
+  display: none;
+}
+.board.display {
+  display: flex;
 }
 .board .item {
   position: relative;
@@ -132,6 +135,37 @@ body {
 }
 .board .item.turned .card, .board .item.valid .card {
   transform: rotateY(180deg);
+}
+
+.progressBar {
+  position: relative;
+  height: 20px;
+  width: 990px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: #a2a2a2;
+  display: none;
+}
+.progressBar.display {
+  display: block;
+}
+.progressBar .bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.progressBar .bar.green {
+  background: #13a200;
+}
+.progressBar .bar.orange {
+  background: #d07d00;
+}
+.progressBar .bar.red {
+  background: #d00000;
+}
+
+.introduction.remove {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

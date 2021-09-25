@@ -1,14 +1,16 @@
 window.onload = function () {
-  init()
+  document.querySelector('button').addEventListener('click', function () {
+    document.querySelector('.introduction').classList.add('remove')
+    document.querySelector('.board').classList.add('display')
+    document.querySelector('.progressBar').classList.add('display')
+    init()
+  })
 }
 
 function turnCard() {
   const id = this.dataset.id
   const element = document.querySelector(`.item[data-id="${id}"]`)
-  if (
-    !element.classList.contains('turned') &&
-    !element.classList.contains('valid')
-  ) {
+  if (!element.classList.contains('valid')) {
     fetch('/api/game/reveal', {
       method: 'post',
       headers: {
@@ -87,7 +89,7 @@ function init() {
       })
     })
 }
-let counter
+let counter, maxTime
 function countdown(countdown) {
   let count = countdown
 
@@ -99,6 +101,25 @@ function countdown(countdown) {
       })
       clearInterval(counter)
     }
-    count = count - 1000
-  }, 1000)
+    let percent = ((countdown - count) * 100) / countdown
+    percent = 100 - percent
+    percent.toFixed(2)
+    document.querySelector('.progressBar .bar').style.width = percent + '%'
+    // document.querySelector('.progressBar #file').value = percent
+
+    if (percent < 50) {
+      document.querySelector('.progressBar .bar').classList.remove('green')
+      document.querySelector('.progressBar .bar').classList.add('orange')
+      document.querySelector('.progressBar .bar').style.background =
+        'rgb(208, 125, 0)'
+    }
+    if (percent < 15) {
+      document.querySelector('.progressBar .bar').classList.remove('orange')
+      document.querySelector('.progressBar .bar').classList.add('red')
+      document.querySelector('.progressBar .bar').style.background =
+        'rgb(208, 0, 0)'
+    }
+    console.log(percent)
+    count = count - 10
+  }, 10)
 }
