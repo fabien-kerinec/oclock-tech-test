@@ -19,7 +19,6 @@ function turnCard() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
         if (!res.cards.end) {
           if (res.cards.validArray.length > 0) {
             res.cards.validArray.map((card) => {
@@ -68,7 +67,6 @@ function turnCard() {
           }
         } else {
           clearInterval(counter)
-          console.log(res.cards.statusGame)
         }
       })
   } else {
@@ -94,11 +92,9 @@ function countdown(countdown) {
   let count = countdown
 
   counter = setInterval(function () {
-    console.log(count)
     if (count <= 0) {
       alert('losse')
       document.querySelectorAll(`.item`).forEach((item) => {
-        console.log('test')
         item.removeEventListener('click', turnCard)
       })
       clearInterval(counter)
