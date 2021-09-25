@@ -130,7 +130,7 @@ body {
 .board .item .card img.front.card_17 {
   top: -1700px;
 }
-.board .item:hover .card {
+.board .item.turned .card, .board .item.valid .card {
   transform: rotateY(180deg);
 }
 

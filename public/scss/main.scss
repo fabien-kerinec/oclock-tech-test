@@ -133,7 +133,8 @@ body {
         }
       }
     }
-    &:hover {
+    &.turned,
+    &.valid {
       .card {
         transform: rotateY(180deg);
       }
