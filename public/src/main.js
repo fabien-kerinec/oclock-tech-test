@@ -1,4 +1,16 @@
 window.onload = function () {
+  fetch('/api/game/leaderboard')
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+      let string = ''
+      res.map((item, index) => {
+        string += `<li>#${index + 1} : ${millisToMinutesAndSeconds(
+          item.time
+        )}</li>`
+      })
+      document.querySelector('ul').innerHTML = string
+    })
   document.querySelector('button').addEventListener('click', function () {
     document.querySelector('.introduction').classList.add('remove')
     document.querySelector('.board').classList.add('display')
@@ -122,4 +134,10 @@ function countdown(countdown) {
     console.log(percent)
     count = count - 10
   }, 10)
+}
+
+function millisToMinutesAndSeconds(millis) {
+  var minutes = Math.floor(millis / 60000)
+  var seconds = ((millis % 60000) / 1000).toFixed(0)
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
