@@ -23,12 +23,11 @@ class Board {
       // la notation array.push(i, i) est un équivalent a faire deux array.push(i)
       cardArray.push(i, i)
     }
-
     // On va ensuite créer un objet par carte que l'on va ajouter dans l'objet global cardsObject
     // pour se faire il va falloir faire une boucle sur l'ensemble des elements du tableau precedement créer
     // Le but et de pouvoir positionner et identifier l'ensemble des cartes d'un board
 
-    for (let j = 0; j < cardArray.length; j++) {
+    for (let j = 0; j < config.GAME_PAIR * 2; j++) {
       // pour positionner aleatoirement une valeur dans le tableau, deux possibilitée
       // 1 - attriber a une carte en particulier une position.
       // 2 - attribuer a chaque position une carte.
@@ -36,7 +35,15 @@ class Board {
 
       // etape 1 : selectionner une valeur au hasard dans l'array de carte
       const randomCardValue = random(0, cardArray.length - 1)
-      console.log(randomCardValue)
+      // etape 2 : on creer l'object de la carte qui va contenir les paramettre necessaire pour l'identifier et definir son ERROR_CODE_CANNOT_CREATE_RESOURCE
+      this.cardsObject[j] = {
+        id: j,
+        valid: false,
+        turn: false,
+        card: cardArray[randomCardValue],
+      }
+      // etape 3 : on retire cette valeur de l'array pour eviter d'avoir deux cartes associé a une position
+      cardArray.splice(randomCardValue, 1)
     }
   }
 }
