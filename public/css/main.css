@@ -30,12 +30,20 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-family: Arial, Sans-serif;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+h1 {
+  margin: 0 auto;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 45px;
 }
 
 .board {
@@ -164,8 +172,34 @@ body {
   background: #d00000;
 }
 
+.introduction {
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .introduction.remove {
   display: none;
+}
+.introduction .leaderBoard {
+  width: 100%;
+}
+.introduction button {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  margin: 0 auto;
+  cursor: pointer;
+  border: 1px solid #000;
+  background: transparent;
+  padding: 5px 20px;
+  transition: all 0.3s ease-in-out;
+}
+.introduction button:hover {
+  background: #151515;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
