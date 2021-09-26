@@ -123,4 +123,4 @@ le js sert exclusivement a gérer les appels à l'api via fetch et à traiter le
 Pour rajouter quelques petites choses que tout le monde ne connait pas, j'ai décidé d'utiliser deux choses :
 
 - lorem picsum : une api permettant de génerer des images en fonction d'une taille précisé dans l'url
-- lottie files : qui permet d'avoir des animation svg qui sont faisable via after effect. Ici j'ai utilisé des images présente dans leur bibliotèque gratuite.
+- lottie files : qui permet d'avoir des animation svg qui sont faisable via after effect. Ici j'ai utilisé des animations présentes dans leur bibliotèque gratuite.
