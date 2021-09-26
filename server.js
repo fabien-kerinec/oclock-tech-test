@@ -20,6 +20,7 @@ app.use(routes)
 
 // Demarrage du server nodejs js via l'app express sur un port particulier
 // le port à une valeur par default en cas de non configuration
-app.listen(config.APP_PORT || 3001, () => {
-  console.log(`your app is running on port ${config.APP_PORT || 3001}`)
+
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`your app is running on port ${process.env.PORT || 3001}`)
 })
