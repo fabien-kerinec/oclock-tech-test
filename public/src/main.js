@@ -3,7 +3,6 @@ window.onload = function () {
   fetch('/api/game/leaderboard')
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
       let string = ''
       res.map((item, index) => {
         string += `<li>#${index + 1} : ${millisToMinutesAndSeconds(
@@ -173,7 +172,6 @@ function countdown(countdown) {
       document.querySelector('.progressBar .bar').style.background =
         'rgb(208, 0, 0)'
     }
-    // console.log(percent)
     count = count - 10
   }, 10)
 }
