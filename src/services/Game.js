@@ -33,9 +33,7 @@ class Game {
     let oldArray = []
     // Etape 1 : verifier qu'il n'y a pas deux carte déjà tournée
     if (this.turnedCard.length >= 2) {
-      console.log('TODO : CARTE A RETOURNER AVANT DE FAIRE QUOI QUE CE SOIT')
       oldArray = Array.from(this.turnedCard)
-      console.log(this.turnedCard)
       this.Board.unTurned(this.turnedCard)
       this.turnedCard = []
     }
@@ -90,17 +88,19 @@ class Game {
     clearInterval(this.counter)
     Data.delete(`gameID_${this.id}`)
   }
-
+  /**
+   * Fonction qui gère le setInterval pour la game duration
+   * @param {number} duration
+   */
   countdown(duration) {
     this.count = duration
 
     let counter = setInterval(() => {
-      console.log(this.count)
       if (this.count <= 0) {
         this.endGame()
         this.statusGame = 'losse'
       }
-      if (this.counterTrigger) {
+      if (this.end) {
         clearInterval(counter)
       }
       this.count = this.count - 1000

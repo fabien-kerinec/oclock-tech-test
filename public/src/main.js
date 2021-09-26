@@ -85,6 +85,25 @@ function turnCard() {
             })
           }
         } else {
+          console.log('yooo')
+          console.log(res.cards)
+          if (res.cards.newArray.length > 0) {
+            res.cards.newArray.map((card) => {
+              const elm = document.querySelector(`.item[data-id="${card.id}"]`)
+              if (
+                !elm.classList.contains('turned') &&
+                !elm.classList.contains('valid')
+              ) {
+                document
+                  .querySelector(`.item[data-id="${card.id}"] .front`)
+                  .classList.add(`card_${card.card}`)
+                elm.classList.add('turned')
+              }
+            })
+          }
+          document.querySelectorAll(`.item`).forEach((item) => {
+            item.removeEventListener('click', turnCard)
+          })
           clearInterval(counter)
         }
       })

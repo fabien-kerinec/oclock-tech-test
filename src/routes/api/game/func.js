@@ -16,7 +16,7 @@ model.resource.create = (req, res, next) => {
   })
 }
 
-model.resource.reveal = (req, res, next) => {
+model.resource.reveal = async (req, res, next) => {
   if (!req.body.card || !req.body.game) {
     console.log('error')
     return
@@ -26,11 +26,16 @@ model.resource.reveal = (req, res, next) => {
 
   const fullGame = Data.get(`gameID_${game}`)
 
-  const turnedCard = fullGame.setTurn(card)
-
-  res.json({
-    cards: turnedCard,
-  })
+  const turnedCard = await fullGame.setTurn(card)
+  if (turnedCard) {
+    res.json({
+      cards: turnedCard,
+    })
+  } else {
+    res.json({
+      game: 'win',
+    })
+  }
 }
 
 model.resource.leaderboard = async (req, res, next) => {
