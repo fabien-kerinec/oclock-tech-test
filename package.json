@@ -6,8 +6,11 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run server & npm run scss",
+    "dev": "npm run server && npm run scss",
     "server": "nodemon server.js",
+    "compile": "node-sass --output-style=expanded --source-map=true public/scss/main.scss public/css/main.css",
+    "prefix": "postcss public/css/main.css --use=autoprefixer --map=false --output=public/css/main.css",
+    "build": "npm run compile && npm run prefix",
     "scss": "sass --watch public/scss/main.scss public/css/main.css"
   },
   "keywords": [],
@@ -23,6 +26,9 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "autoprefixer": "^10.3.6",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.13",
+    "postcss-cli": "^9.0.0"
   }
 }

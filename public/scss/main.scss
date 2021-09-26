@@ -1,8 +1,10 @@
-// j'importe une bibliotheque de mixin
-// elle me sert a definir certains element css redondant afin de garder une unité sur l'ensemble de l'application
-// il suffit de les appeler comme suit :
-// @include nomDeLaMixin();
-// le contenu de la mixin sera alors ajouté à l'endroit ou elle est appelé
+/* 
+  j'importe une bibliotheque de mixin
+  elle me sert a definir certains element css redondant afin de garder une unité sur l'ensemble de l'application
+  il suffit de les appeler comme suit :
+  @include nomDeLaMixin();
+  le contenu de la mixin sera alors ajouté à l'endroit ou elle est appelé 
+*/
 @import 'mixins';
 
 * {
@@ -61,10 +63,12 @@ h1 {
   position: relative;
   flex-direction: row;
   flex-wrap: wrap;
-  // je calcule la taille necessaire a mon board;
-  // on a 36 carte en tout (18 paires) donc 4 ligne de 9
-  // qui font 100px de large
-  // j'y rajoute 5px de marge sur les côté
+  /* 
+    je calcule la taille necessaire a mon board;
+    on a 36 carte en tout (18 paires) donc 4 ligne de 9
+    qui font 100px de large
+    j'y rajoute 5px de marge sur les côté
+  */
   width: calc(9 * 100px + 9 * 10px);
   margin: 0 auto;
   background: rgb(133, 133, 133);
