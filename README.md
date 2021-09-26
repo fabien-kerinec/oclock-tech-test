@@ -18,9 +18,9 @@ Dans la suite de ce document, je vais essayer d'expliquer mes choix ainsi que la
 ## Cible d'un point de vue educatif
 
 Étant donnée que ma candidature porte principalement sur du javascript, j'ai décidé prendre pour cible des étudiant qui seraient en découverte de NODE.JS.  
-Le but étant ici de donner un exemple relativement simple de plusieurs notions importantes lors de la construction du backoffice via nodeJS ainsi que de faire une découverte des bases de données non-relationnelle.
+Le but étant ici de donner un exemple relativement simple de plusieurs notions importantes lors de la construction du backoffice via nodeJS ainsi que de faire une découverte des bases de données non-relationnelle.  
 J'ai quand même souhaité faire en sorte de garder de la cohérance dans la façon dont le jeu est développé.  
-J'ai décidé de tout gérer côté backoffice pour éviter de pouvoir intervenir dessus côté front.
+J'ai décidé de tout gérer côté backoffice pour éviter de pouvoir intervenir dessus côté front.  
 De même en plus de la base de données, j'ai souhaité montrer une deuxième façon de stocker des données dans l'application.
 
 ## Stack
@@ -49,8 +49,7 @@ Concernant les packages utilisés, j'ai la aussi voulu en utiliser le moins poss
 Commencer par créer un `.env` a partir du `.env.sample`.  
 L'ensemble des variables sont necessaires à configurer. Le detail de celles-ci sont plus bas
 
-Attention, en fonction de votre système d'exploitation, en phase de dev, il faudra lancer séparement  
-`npm run dev` et `npm run scss` pour que tout s'execute proprement
+Attention, en fonction de votre système d'exploitation, en phase de dev, il faudra lancer séparement `npm run dev` et `npm run scss` pour que tout s'execute proprement
 
 | command | descriptions                                                                             |
 | ------- | ---------------------------------------------------------------------------------------- |
@@ -64,7 +63,7 @@ Attention, en fonction de votre système d'exploitation, en phase de dev, il fau
 
 ## Architecture
 
-Dans l'optique d'une découverte de Node.JS, j'ai voulu rester en environnement fermé et donc tout gérer directement dans la même application  
+Dans l'optique d'une découverte de Node.JS, j'ai voulu rester en environnement fermé et donc tout gérer directement dans la même application.  
 Nous nous retrouvons donc avec une seule application et pas, comme souvent dans le cas de nodeJS une application back et une application front séparée
 
 #### Backend
@@ -118,9 +117,9 @@ Cette partie de l'app est surtout pour l'exemple, cela permet d'avoir un ensembl
 
 #### Frontend
 
-La partie front end est très classique.
-Le scss est compilé en un fichier scss
-le js sert exclusivement a gérer les appels à l'api via fetch et à traiter les informations qui reviennent de l'api.
+La partie front end est très classique.  
+Le scss est compilé en un fichier scss.  
+le js sert exclusivement a gérer les appels à l'api via fetch et à traiter les informations qui reviennent de l'api.  
 Pour rajouter quelques petites choses que tout le monde ne connait pas, j'ai décidé d'utiliser deux choses :
 
 - lorem picsum : une api permettant de génerer des images en fonction d'une taille précisé dans l'url
