@@ -8,13 +8,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run server && npm run scss",
+    "build": "npm run compile && npm run prefix",
+    "scss": "node-sass public/scss/main.scss public/css/main.css -w",
     "server": "nodemon server.js",
     "compile": "node-sass --output-style=expanded --source-map=true public/scss/main.scss public/css/main.css",
-    "prefix": "postcss public/css/main.css --use=autoprefixer --map=false --output=public/css/main.css",
-    "build": "npm run compile && npm run prefix",
-    "scss": "sass --watch public/scss/main.scss public/css/main.css"
+    "prefix": "postcss public/css/main.css --use=autoprefixer --map=false --output=public/css/main.css"
   },
   "keywords": [],
   "author": "",
