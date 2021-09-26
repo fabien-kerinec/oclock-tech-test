@@ -166,6 +166,19 @@ h1 {
   width: 100%;
   transform: rotateY(180deg);
   bottom: unset;
+  /*
+              on utilise la boucle for pour éviter de se répeter
+              si jamais on ne l'utilisait pas il aurait fallut donner une valeur pour chaque carte
+              &.card_1{
+                top : -100px
+              }
+              &.card_2{
+                top : -200px
+              }
+              etc ...
+
+              Gros gains de temps et pas de risque de se tromper
+            */
 }
 
 .board .game .item .card img.front.card_0 {
