@@ -34,6 +34,7 @@ function turnCard() {
       .then((res) => res.json())
       .then((res) => {
         if (!res.cards.end) {
+          console.log(res.cards)
           if (res.cards.validArray.length > 0) {
             res.cards.validArray.map((card) => {
               const elm = document.querySelector(`.item[data-id="${card.id}"]`)
@@ -51,17 +52,21 @@ function turnCard() {
           }
           if (res.cards.oldArray.length > 0) {
             res.cards.oldArray.map((card) => {
-              const elm = document.querySelector(`.item[data-id="${card.id}"]`)
-              if (
-                elm.classList.contains('turned') &&
-                !elm.classList.contains('valid')
-              ) {
-                elm.classList.remove('turned')
-                setTimeout(() => {
-                  document
-                    .querySelector(`.item[data-id="${card.id}"] .front`)
-                    .classList.remove(`card_${card.card}`)
-                }, 300)
+              if (card.id !== res.cards.newArray[0].id) {
+                const elm = document.querySelector(
+                  `.item[data-id="${card.id}"]`
+                )
+                if (
+                  elm.classList.contains('turned') &&
+                  !elm.classList.contains('valid')
+                ) {
+                  elm.classList.remove('turned')
+                  setTimeout(() => {
+                    document
+                      .querySelector(`.item[data-id="${card.id}"] .front`)
+                      .classList.remove(`card_${card.card}`)
+                  }, 300)
+                }
               }
             })
           }
@@ -131,7 +136,7 @@ function countdown(countdown) {
       document.querySelector('.progressBar .bar').style.background =
         'rgb(208, 0, 0)'
     }
-    console.log(percent)
+    // console.log(percent)
     count = count - 10
   }, 10)
 }
