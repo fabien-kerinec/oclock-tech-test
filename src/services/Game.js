@@ -52,7 +52,8 @@ class Game {
       if (this.checkTurnedCard()) {
         this.validCard.push(this.turnedCard[0], this.turnedCard[1])
         if (this.validCard.length === config.GAME_PAIR * 2) {
-          const time = User.create({ time: 1234 })
+          const wintime = config.GAME_DURATION - this.count
+          const time = leaderboardSchema.create({ time: wintime })
           this.endGame()
           this.statusGame = 'win'
         }
@@ -98,6 +99,8 @@ class Game {
       if (this.count <= 0) {
         this.endGame()
         this.statusGame = 'losse'
+      }
+      if (this.counterTrigger) {
         clearInterval(counter)
       }
       this.count = this.count - 1000
