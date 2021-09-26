@@ -38,12 +38,24 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+@media (max-width: 500px) {
+  body {
+    height: auto;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
 
 h1 {
   margin: 0 auto;
   font-size: 30px;
   text-align: center;
   margin-bottom: 45px;
+}
+@media (max-width: 500px) {
+  h1 {
+    margin-bottom: 20px;
+  }
 }
 
 .board {
@@ -81,6 +93,7 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
+  overflow: hidden;
 }
 .board .game.disable::after {
   content: "";
@@ -120,65 +133,137 @@ h1 {
   backface-visibility: hidden;
 }
 .board .game .item .card img.front {
+  width: 100%;
   transform: rotateY(180deg);
   bottom: unset;
 }
 .board .game .item .card img.front.card_0 {
-  top: 0;
+  top: calc(0px - 0px);
 }
 .board .game .item .card img.front.card_1 {
-  top: -100px;
+  top: calc(0px - 100px);
 }
 .board .game .item .card img.front.card_2 {
-  top: -200px;
+  top: calc(0px - 200px);
 }
 .board .game .item .card img.front.card_3 {
-  top: -300px;
+  top: calc(0px - 300px);
 }
 .board .game .item .card img.front.card_4 {
-  top: -400px;
+  top: calc(0px - 400px);
 }
 .board .game .item .card img.front.card_5 {
-  top: -500px;
+  top: calc(0px - 500px);
 }
 .board .game .item .card img.front.card_6 {
-  top: -600px;
+  top: calc(0px - 600px);
 }
 .board .game .item .card img.front.card_7 {
-  top: -700px;
+  top: calc(0px - 700px);
 }
 .board .game .item .card img.front.card_8 {
-  top: -800px;
+  top: calc(0px - 800px);
 }
 .board .game .item .card img.front.card_9 {
-  top: -900px;
+  top: calc(0px - 900px);
 }
 .board .game .item .card img.front.card_10 {
-  top: -1000px;
+  top: calc(0px - 1000px);
 }
 .board .game .item .card img.front.card_11 {
-  top: -1100px;
+  top: calc(0px - 1100px);
 }
 .board .game .item .card img.front.card_12 {
-  top: -1200px;
+  top: calc(0px - 1200px);
 }
 .board .game .item .card img.front.card_13 {
-  top: -1300px;
+  top: calc(0px - 1300px);
 }
 .board .game .item .card img.front.card_14 {
-  top: -1400px;
+  top: calc(0px - 1400px);
 }
 .board .game .item .card img.front.card_15 {
-  top: -1500px;
+  top: calc(0px - 1500px);
 }
 .board .game .item .card img.front.card_16 {
-  top: -1600px;
+  top: calc(0px - 1600px);
 }
 .board .game .item .card img.front.card_17 {
-  top: -1700px;
+  top: calc(0px - 1700px);
+}
+@media (max-width: 1000px) {
+  .board .game .item .card img.front.card_0 {
+    top: calc(0px - 0px);
+  }
+  .board .game .item .card img.front.card_1 {
+    top: calc(0px - 75px);
+  }
+  .board .game .item .card img.front.card_2 {
+    top: calc(0px - 150px);
+  }
+  .board .game .item .card img.front.card_3 {
+    top: calc(0px - 225px);
+  }
+  .board .game .item .card img.front.card_4 {
+    top: calc(0px - 300px);
+  }
+  .board .game .item .card img.front.card_5 {
+    top: calc(0px - 375px);
+  }
+  .board .game .item .card img.front.card_6 {
+    top: calc(0px - 450px);
+  }
+  .board .game .item .card img.front.card_7 {
+    top: calc(0px - 525px);
+  }
+  .board .game .item .card img.front.card_8 {
+    top: calc(0px - 600px);
+  }
+  .board .game .item .card img.front.card_9 {
+    top: calc(0px - 675px);
+  }
+  .board .game .item .card img.front.card_10 {
+    top: calc(0px - 750px);
+  }
+  .board .game .item .card img.front.card_11 {
+    top: calc(0px - 825px);
+  }
+  .board .game .item .card img.front.card_12 {
+    top: calc(0px - 900px);
+  }
+  .board .game .item .card img.front.card_13 {
+    top: calc(0px - 975px);
+  }
+  .board .game .item .card img.front.card_14 {
+    top: calc(0px - 1050px);
+  }
+  .board .game .item .card img.front.card_15 {
+    top: calc(0px - 1125px);
+  }
+  .board .game .item .card img.front.card_16 {
+    top: calc(0px - 1200px);
+  }
+  .board .game .item .card img.front.card_17 {
+    top: calc(0px - 1275px);
+  }
 }
 .board .game .item.turned .card, .board .game .item.valid .card {
   transform: rotateY(180deg);
+}
+@media (max-width: 1000px) {
+  .board {
+    width: 711px;
+  }
+  .board .game .item {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+  }
+}
+@media (max-width: 500px) {
+  .board {
+    width: 316px;
+  }
 }
 
 .progressBar {
@@ -207,9 +292,30 @@ h1 {
 .progressBar .bar.red {
   background: #d00000;
 }
+@media (max-width: 1000px) {
+  .progressBar {
+    width: 711px;
+  }
+  .progressBar .game .item {
+    width: 75px;
+    height: 75px;
+    margin: 2px;
+  }
+}
+@media (max-width: 500px) {
+  .progressBar {
+    width: 316px;
+  }
+}
+@media (max-width: 400px) {
+  .progressBar {
+    margin-bottom: 20px;
+  }
+}
 
 .introduction {
-  width: 350px;
+  width: 90%;
+  max-width: 350px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
