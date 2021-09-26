@@ -1,4 +1,5 @@
 window.onload = function () {
+  // Au chargement de la page, on recupere les element du leaderboard
   fetch('/api/game/leaderboard')
     .then((res) => res.json())
     .then((res) => {
@@ -33,9 +34,13 @@ function turnCard() {
     })
       .then((res) => res.json())
       .then((res) => {
+        // si jamais le jeu n'est pas finis alors on execute le process.
+        // Sinon on lance la fin du jeu
         if (!res.cards.end) {
-          console.log(res.cards)
+          // On traite l'ensemble des cartes validées
           if (res.cards.validArray.length > 0) {
+            // On parcours l'ensemble des cartes valides, puis on si jamais elles n'ont pas la class valid on l'ajoute.
+            // On leur retire aussi la class turned pour s'assurer qu'il n'y ai pas de mauvaise selection par la suite
             res.cards.validArray.map((card) => {
               const elm = document.querySelector(`.item[data-id="${card.id}"]`)
               if (!elm.classList.contains('valid')) {
@@ -50,7 +55,10 @@ function turnCard() {
               }
             })
           }
+          // On traite l'ensemble des cartes qu'il faut retourner
           if (res.cards.oldArray.length > 0) {
+            // On parcours l'ensemble qu'il faut retourner, puis on si jamais elles n'ont pas la class valid et a la class turned on retire la class turned pour la masquer.
+            // On ajout un leger delai pour reset le positionnement du sprite (pour eviter de retrouver les reponses dans le DOM)
             res.cards.oldArray.map((card) => {
               if (card.id !== res.cards.newArray[0].id) {
                 const elm = document.querySelector(
@@ -70,7 +78,11 @@ function turnCard() {
               }
             })
           }
+          // On traite l'ensemble des cartes qu'il faut afficher
           if (res.cards.newArray.length > 0) {
+            // On parcours l'ensemble des cartes a afficher, puis on si jamais elles n'ont pas la class valid ni la class turned on ajoute la class turned.
+            // On leur ajoute aussi la class permettant d'afficher le bon fruit exemple "card_1" avec 1 étant un identifiant contenu côté backoffice
+            // et qui permet d'associer un numero à un fruit
             res.cards.newArray.map((card) => {
               const elm = document.querySelector(`.item[data-id="${card.id}"]`)
               if (
@@ -108,16 +120,17 @@ function turnCard() {
           clearInterval(counter)
         }
       })
-  } else {
-    alert('sorry your game is already finished')
   }
 }
 
+/**
+ * Fonction qui lance l'ensmble du jeu
+ */
 function init() {
+  //requete le debut du jeu, ça permet d'initialiser un board au hasard côté backoffice
   fetch('/api/game', { method: 'POST' })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
       sessionStorage.setItem('game', res.game)
       countdown(res.timer)
       const itemList = document.querySelectorAll('.item')
@@ -131,10 +144,12 @@ function countdown(countdown) {
   let count = countdown
 
   counter = setInterval(function () {
+    // si le counter arrive à 0, on arrete le jeu, et l'utilisateur a perdu
     if (count <= 0) {
       document.querySelector('.lose').classList.add('display')
       document.querySelector('.game').classList.add('disable')
       document.querySelector('.progressBar').classList.remove('display')
+      // il est important de retirer les event afin d'éviter tout problème
       document.querySelectorAll(`.item`).forEach((item) => {
         item.removeEventListener('click', turnCard)
       })
@@ -163,6 +178,11 @@ function countdown(countdown) {
   }, 10)
 }
 
+/**
+ * Fonction qui convertis milliseconde en mm:ss
+ * @param {number} millis
+ * @returns {string} text comprenant la convertion
+ */
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000)
   var seconds = ((millis % 60000) / 1000).toFixed(0)
