@@ -33,16 +33,18 @@ De même en plus de la base de données, j'ai souhaité montrer une deuxième fa
 
 Concernant les packages utilisés, j'ai la aussi voulu en utiliser le moins possible pour éviter la complexité / abstraction
 
-| package  | version | descriptions                                                                              |
-| -------- | ------- | ----------------------------------------------------------------------------------------- |
-| nodejs   | v16.4.0 | Permet d'utiliser du javascript côté serveur                                              |
-| express  | v4.17.1 | Permet de créer un serveur web et aide la création d'api                                  |
-| mongoose | v6.0.7  | Permet de définir gérer la connexion a la base de données et de génerer des schémas typés |
-| cors     | v2.8.5  | Permet de configurer les cors et de les utiliser comme middleware express                 |
-| sass     | v1.42.1 | Permet de compiler le scss vers du css classique                                          |
-| uuid     | v8.3.2  | Permet de génerer des uuid. C'est un format pour former des ids uniques                   |
-| dotenv   | v10.0.0 | Permet de configurer des informations sensibles, exemples les clefs d'API                 |
-| nodemon  | v2.0.13 | Permet d'avoir un reload automatique du serveur pendant le developpement                  |
+| package      | version | descriptions                                                                              |
+| ------------ | ------- | ----------------------------------------------------------------------------------------- |
+| nodejs       | v16.4.0 | Permet d'utiliser du javascript côté serveur                                              |
+| express      | v4.17.1 | Permet de créer un serveur web et aide la création d'api                                  |
+| mongoose     | v6.0.7  | Permet de définir gérer la connexion a la base de données et de génerer des schémas typés |
+| cors         | v2.8.5  | Permet de configurer les cors et de les utiliser comme middleware express                 |
+| node-sass    | v1.42.1 | Permet de compiler le scss vers du css classique                                          |
+| uuid         | v8.3.2  | Permet de génerer des uuid. C'est un format pour former des ids uniques                   |
+| dotenv       | v10.0.0 | Permet de configurer des informations sensibles, exemples les clefs d'API                 |
+| nodemon      | v2.0.13 | Permet d'avoir un reload automatique du serveur pendant le developpement                  |
+| autoprefixer | v2.0.13 | Permet de rajotuter des prefix lors de l'execution d'une commande en l'occurence au build |
+| postcss-cli  | v2.0.13 | Permet d'executer certaines des commande postcss via l'invit de commande                  |
 
 ## Demarrage du projet et detail commandes
 
