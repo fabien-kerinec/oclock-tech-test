@@ -9,8 +9,6 @@ model.resource = {}
 model.resource.create = (req, res, next) => {
   const GameInstance = new Game()
   Data.set(`gameID_${GameInstance.id}`, GameInstance)
-
-  console.log(leaderboard)
   return res.json({
     game: GameInstance.id,
     timer: GameInstance.gameDuration,
