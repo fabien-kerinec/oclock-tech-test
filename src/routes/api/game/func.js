@@ -5,7 +5,13 @@ const leaderboardSchema = require('../../../database/Leaderboard')
 let model = {}
 model.collection = {}
 model.resource = {}
-
+/**
+ * Fonction definissant ce qui va ce passer sur la route associé /api/game/
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 model.resource.create = (req, res, next) => {
   const GameInstance = new Game()
   Data.set(`gameID_${GameInstance.id}`, GameInstance)
@@ -15,7 +21,13 @@ model.resource.create = (req, res, next) => {
     full: GameInstance,
   })
 }
-
+/**
+ * Fonction definissant ce qui va ce passer sur la route associé /api/game/reveal
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 model.resource.reveal = async (req, res, next) => {
   if (!req.body.card || !req.body.game) {
     console.log('error')
@@ -37,7 +49,13 @@ model.resource.reveal = async (req, res, next) => {
     })
   }
 }
-
+/**
+ * Fonction definissant ce qui va ce passer sur la route associé /api/game/leaderboard
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 model.resource.leaderboard = async (req, res, next) => {
   const leaderboard = await leaderboardSchema.find({}, null, {
     limit: 3,

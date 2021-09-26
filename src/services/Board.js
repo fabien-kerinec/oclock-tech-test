@@ -64,13 +64,18 @@ class Board {
 
   /**
    * Fonction qui permet de valider deux carte identique
-   * @param {array} turnedCard
+   * @param {array} turnedCard tableau carte a valider
    */
   setValid(validedCard) {
     validedCard.map((item) => {
       this.cardsObject[item.id].valid = true
     })
   }
+
+  /**
+   * Fonction qui permet de retourner deux cartes
+   * @param {array} array tableau de carte a retourner
+   */
   unTurned(array) {
     array.map((item) => {
       this.cardsObject[item.id].turn = false
