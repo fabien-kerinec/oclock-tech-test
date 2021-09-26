@@ -85,8 +85,6 @@ function turnCard() {
             })
           }
         } else {
-          console.log('yooo')
-          console.log(res.cards)
           if (res.cards.newArray.length > 0) {
             res.cards.newArray.map((card) => {
               const elm = document.querySelector(`.item[data-id="${card.id}"]`)
@@ -104,6 +102,9 @@ function turnCard() {
           document.querySelectorAll(`.item`).forEach((item) => {
             item.removeEventListener('click', turnCard)
           })
+          document.querySelector('.win').classList.add('display')
+          document.querySelector('.game').classList.add('disable')
+          document.querySelector('.progressBar').classList.remove('display')
           clearInterval(counter)
         }
       })
@@ -131,7 +132,9 @@ function countdown(countdown) {
 
   counter = setInterval(function () {
     if (count <= 0) {
-      alert('losse')
+      document.querySelector('.lose').classList.add('display')
+      document.querySelector('.game').classList.add('disable')
+      document.querySelector('.progressBar').classList.remove('display')
       document.querySelectorAll(`.item`).forEach((item) => {
         item.removeEventListener('click', turnCard)
       })

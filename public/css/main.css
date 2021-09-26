@@ -47,6 +47,7 @@ h1 {
 }
 
 .board {
+  position: relative;
   flex-direction: row;
   flex-wrap: wrap;
   width: 990px;
@@ -57,7 +58,42 @@ h1 {
 .board.display {
   display: flex;
 }
-.board .item {
+.board .win,
+.board .lose {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.board .win.display,
+.board .lose.display {
+  display: flex;
+}
+.board .win .win_animation,
+.board .lose .win_animation {
+  width: 50%;
+}
+.board .game {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+}
+.board .game.disable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #434343;
+  opacity: 0.7;
+  filter: blur(107px);
+}
+.board .game .item {
   position: relative;
   width: 100px;
   height: 100px;
@@ -66,14 +102,14 @@ h1 {
   overflow: hidden;
   perspective: 1000px;
 }
-.board .item .card {
+.board .game .item .card {
   position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.board .item .card img {
+.board .game .item .card img {
   position: absolute;
   top: 0;
   left: 0;
@@ -83,65 +119,65 @@ h1 {
   /* Safari */
   backface-visibility: hidden;
 }
-.board .item .card img.front {
+.board .game .item .card img.front {
   transform: rotateY(180deg);
   bottom: unset;
 }
-.board .item .card img.front.card_0 {
+.board .game .item .card img.front.card_0 {
   top: 0;
 }
-.board .item .card img.front.card_1 {
+.board .game .item .card img.front.card_1 {
   top: -100px;
 }
-.board .item .card img.front.card_2 {
+.board .game .item .card img.front.card_2 {
   top: -200px;
 }
-.board .item .card img.front.card_3 {
+.board .game .item .card img.front.card_3 {
   top: -300px;
 }
-.board .item .card img.front.card_4 {
+.board .game .item .card img.front.card_4 {
   top: -400px;
 }
-.board .item .card img.front.card_5 {
+.board .game .item .card img.front.card_5 {
   top: -500px;
 }
-.board .item .card img.front.card_6 {
+.board .game .item .card img.front.card_6 {
   top: -600px;
 }
-.board .item .card img.front.card_7 {
+.board .game .item .card img.front.card_7 {
   top: -700px;
 }
-.board .item .card img.front.card_8 {
+.board .game .item .card img.front.card_8 {
   top: -800px;
 }
-.board .item .card img.front.card_9 {
+.board .game .item .card img.front.card_9 {
   top: -900px;
 }
-.board .item .card img.front.card_10 {
+.board .game .item .card img.front.card_10 {
   top: -1000px;
 }
-.board .item .card img.front.card_11 {
+.board .game .item .card img.front.card_11 {
   top: -1100px;
 }
-.board .item .card img.front.card_12 {
+.board .game .item .card img.front.card_12 {
   top: -1200px;
 }
-.board .item .card img.front.card_13 {
+.board .game .item .card img.front.card_13 {
   top: -1300px;
 }
-.board .item .card img.front.card_14 {
+.board .game .item .card img.front.card_14 {
   top: -1400px;
 }
-.board .item .card img.front.card_15 {
+.board .game .item .card img.front.card_15 {
   top: -1500px;
 }
-.board .item .card img.front.card_16 {
+.board .game .item .card img.front.card_16 {
   top: -1600px;
 }
-.board .item .card img.front.card_17 {
+.board .game .item .card img.front.card_17 {
   top: -1700px;
 }
-.board .item.turned .card, .board .item.valid .card {
+.board .game .item.turned .card, .board .game .item.valid .card {
   transform: rotateY(180deg);
 }
 
