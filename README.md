@@ -153,5 +153,5 @@ Le scss est compilé en un fichier scss.
 le js sert exclusivement a gérer les appels à l'api via fetch et à traiter les informations qui reviennent de l'api.  
 Pour rajouter quelques petites choses que tout le monde ne connait pas, j'ai décidé d'utiliser deux choses :
 
-- lorem picsum : une api permettant de génerer des images en fonction d'une taille précisé dans l'url
-- lottie files : qui permet d'avoir des animation svg qui sont faisable via after effect. Ici j'ai utilisé des animations présentes dans leur bibliotèque gratuite.
+- lorem picsum : une api permettant de génerer des images en fonction d'une taille précisé dans l'url => https://picsum.photos/
+- lottie files : qui permet d'avoir des animation svg qui sont faisable via after effect. Ici j'ai utilisé des animations présentes dans leur bibliotèque gratuite. => https://lottiefiles.com/featured
