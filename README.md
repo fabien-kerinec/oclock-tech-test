@@ -48,15 +48,15 @@ Concernant les packages utilisés, j'ai la aussi voulu en utiliser le moins poss
 
 ## Demarrage du projet et detail commandes
 
-Pour créer une base de donnée mongodb grauitement vous avez plusieurs possibilité :
+Pour créer une base de données mongodb gratuitement vous avez plusieurs possibilités :
 
 - en local de manière classique
 - en ligne par exemple via https://www.mongodb.com/fr-fr
 
-J'ai choisis d'utiliser la version en ligne pour pouvoir mettre en ligne le projet  
-En vous créant un compte puis en suivant le processus de creation en faisant attention a bien séléctionner l'offre free.  
-Vous serez en mesure de recuperer les informations necessaires.  
-Pour visualiser le contenu de votre base de données vous pourrez utiliser le logiciel https://www.mongodb.com/fr-fr/products/compass
+J'ai choisi d'utiliser la version en ligne pour pouvoir mettre en ligne le projet.  
+En vous créant un compte puis en suivant le processus de création en faisant attention à bien sélectionner l'offre free.  
+Vous serez en mesure de récuperer les informations nécessaires.  
+Pour visualiser le contenu de votre base de données, vous pourrez utiliser le logiciel https://www.mongodb.com/fr-fr/products/compass
 
 Commencer par créer un `.env` a partir du `.env.sample`.  
 L'ensemble des variables sont necessaires à configurer. Le detail de celles-ci sont plus bas
@@ -121,22 +121,22 @@ J'ai mis en place deux type de routes :
 ##### Base de donnée
 
 La base de données ici est simple.  
-Nous avons un seul model qui va définir une collection `leaderboard` et contenir des documents comprenant les scores des parties finies
+Nous avons un seul model qui va définir une collection `leaderboard` et contenir des documents comprenant les scores des parties finies.
 
-MongodDB est une base de données non-relationnelle orientée document. Ce qui veut dire que contrairement aux bases de données plus classiques, les elements ne sont pas liés entre eux, et que les données sont stocké sous formes de collections et de documents au lieu d'être basé sur des tables et des colonnes.  
-Les documents sont des paires de clés / valeurs comme des objets Javascript.  
-Les base de données telles que mongoDB sont réputés pour leurs flexibilités et leurs performances, cependant, elles ne sont pas à utiliser dans tout les cas et peuvent vites devenir complexe à maintenir si jamais les données sont liées entre elles.
+MongodDB est une base de données non-relationnelle orientée document. Ce qui veut dire que contrairement aux bases de données plus classiques, les éléments ne sont pas liés entre eux, et que les données sont stocké sous forme de collections et de documents au lieu d'être basé sur des tables et des colonnes.  
+Les documents sont des paires de clés / valeurs comme des objets Javascript, ou du JSON.  
+Les bases de données telles que mongoDB sont réputés pour leurs flexibilités et leurs performances, cependant, elles ne sont pas à utiliser dans tous les cas et peuvent vite devenir complexe à maintenir si jamais les données sont liées entre elles.
 
 Vous pourrez trouver plus d'information à ce sujet dans cet article : https://datascientest.com/mongodb
 
 Mongoose est une interface qui va nous permettre de requéter de maniere simple la base de données.  
 On y retrouve des methodes préconcue pour faire des requète tels que :
 
-- find() pour récuperer des elements
-- findById() pour récuperer un element en fonction de son ID
-- create() pour créer des elements
-- updateOne() pour mettre à jour un element
-- updateMany() pour mettre à jour un array d'elements
+- find() pour récuperer des éléments
+- findById() pour récuperer un élément en fonction de son ID
+- create() pour créer des éléments
+- updateOne() pour mettre à jour un élément
+- updateMany() pour mettre à jour un array d'éléments
 - Vous en trouverez d'autres à l'url : https://mongoosejs.com/docs/queries.html
 
 De même il permet de créer des modèles de données permettant de typer la base de données
