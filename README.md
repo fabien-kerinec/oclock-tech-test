@@ -1,8 +1,8 @@
-# Oclock fullstack test technique
+# O'CLOCK TEST TECHNIQUE
 
 Dans ce repos, on retrouve ma proposition pour le tet technique pour le poste : `formateur JS fullstack`
 
-## Detail du test
+## DETAIL DU TEST
 
 Dans ce test, il était demandé de refaire le memory game (jeu de carte où il faut retrouver les pairs parmi un ensemble de carte retourné)  
 Les contraintes étaient les suivantes :
@@ -15,7 +15,7 @@ Les contraintes étaient les suivantes :
 
 Dans la suite de ce document, je vais essayer d'expliquer mes choix ainsi que la façon dont j'ai pensé l'application
 
-## Cible d'un point de vue educatif
+## CIBLE ÉDUCATIVE
 
 Étant donnée que ma candidature porte principalement sur du javascript, j'ai décidé prendre pour cible des étudiant qui seraient en découverte de NODE.JS.  
 Le but étant ici de donner un exemple relativement simple de plusieurs notions importantes lors de la construction du backoffice via nodeJS ainsi que de faire une découverte des bases de données non-relationnelle.  
@@ -23,7 +23,7 @@ J'ai quand même souhaité faire en sorte de garder de la cohérance dans la fa�
 J'ai décidé de tout gérer côté backoffice pour éviter de pouvoir intervenir dessus côté front.  
 De même en plus de la base de données, j'ai souhaité montrer une deuxième façon de stocker des données dans l'application.
 
-## Stack
+## STACK
 
 | environnement   | details                |
 | --------------- | ---------------------- |
@@ -46,7 +46,7 @@ Concernant les packages utilisés, j'ai la aussi voulu en utiliser le moins poss
 | autoprefixer | v2.0.13 | Permet de rajotuter des prefix lors de l'execution d'une commande en l'occurence au build |
 | postcss-cli  | v2.0.13 | Permet d'executer certaines des commande postcss via l'invit de commande                  |
 
-## Demarrage du projet et detail commandes
+## DEMARRAGE DU PROJET - DÉTAIL COMMANDES
 
 Pour créer une base de données mongodb gratuitement vous avez plusieurs possibilités :
 
@@ -73,12 +73,12 @@ Attention, en fonction de votre système d'exploitation, en phase de dev, il fau
 | build   | Compile tout le scss lors du build pour le rendre compatible et utilisable en css        |
 | scss    | Permet une compilation à la volée lors de changement                                     |
 
-## Architecture
+## ARCHITECTURE
 
 Dans l'optique d'une découverte de Node.JS, j'ai voulu rester en environnement fermé et donc tout gérer directement dans la même application.  
 Nous nous retrouvons donc avec une seule application et pas, comme souvent dans le cas de nodeJS une application back et une application front séparée
 
-#### Backend
+#### BACKEND
 
 J'ai choisir de segmenter mon application en trois parties :
 
@@ -86,7 +86,7 @@ J'ai choisir de segmenter mon application en trois parties :
 - les routes : qui vont permettre à la partie front de communiquer avec la partie backend
 - la base de données qui va nous permettre de stocker l'ensemble des parties gagné
 
-##### Variable d'environnement
+##### VARIABLES D'ENVIRONNEMENT
 
 Permet de stocker des informations souvent sensibles, ou globales à l'application.
 Pour des raison pratiques j'importe ces variables dans un fichier de configuration : `config.js`  
@@ -102,7 +102,7 @@ Cela permet de rajouter de la documentation JSDoc qui permet une autocompletion 
 | MONGO_HOST          | String | Url permettant la connexion à la base de données                      |
 | MONGO_DATABASE_NAME | String | Nom de la base de donnée permettant la connexion à la base de données |
 
-##### Services
+##### SERVICES
 
 C'est ici que l'ensemble du jeu va être géré.  
 L'objectif étant de gérer le jeu via des class, j'ai crée deux class
@@ -111,14 +111,14 @@ L'objectif étant de gérer le jeu via des class, j'ai crée deux class
 - Board : Va gérer l'état des cards du jeu ainsi que definir de manières aléatoire le plateau.
 - Data : Solution de stockage des board pour l'exemple. Dans notre cas, il va garder en mémoire l'ensemble des board qui sont en cours. Ils sont identifiés de manière unique via un UUID
 
-##### Routes
+##### ROUTES
 
 J'ai mis en place deux type de routes :
 
 - La route initiale : `/` qui permet un rendu html
 - Les routes de l'api : `/api/game/XXXX` qui permette d'interagir avec le jeu
 
-##### Base de donnée
+##### BASE DE DONNÉES
 
 La base de données ici est simple.  
 Nous avons un seul model qui va définir une collection `leaderboard` et contenir des documents comprenant les scores des parties finies.
@@ -142,11 +142,11 @@ On y retrouve des methodes préconcue pour faire des requète tels que :
 De même il permet de créer des modèles de données permettant de typer la base de données
 Vous trouverez l'ensemble de la documentation ici : https://mongoosejs.com/docs/guide.html
 
-##### Utils
+##### UTILS
 
 Cette partie de l'app est surtout pour l'exemple, cela permet d'avoir un ensemble de méthode que nous pourrons réutiliser dans notre application.
 
-#### Frontend
+#### FRONTEND
 
 La partie front end est très classique.  
 Le scss est compilé en un fichier scss.  
@@ -155,3 +155,21 @@ Pour rajouter quelques petites choses que tout le monde ne connait pas, j'ai dé
 
 - lorem picsum : une api permettant de génerer des images en fonction d'une taille précisé dans l'url => https://picsum.photos/
 - lottie files : qui permet d'avoir des animation svg qui sont faisable via after effect. Ici j'ai utilisé des animations présentes dans leur bibliotèque gratuite. => https://lottiefiles.com/featured
+
+## DÉPLOIEMENT
+
+Pour cette partie, j'ai choisi d'utiliser un outil que j'utilise régulièrement pour deployer mes projets. https://www.heroku.com/  
+C'est gratuit (dans certaines limites) et permet de faire du déploiement automatique, de gerer des versions de staging / production.  
+La mise en place est assez simple malgré qu'en fonction de la stack il y a quelque subtilité (c'est bien documenté, et il y a beaucoup de retours)  
+Globalement, une fois votre compte crée, il vous faudra crée ce qu'ils appellent un `pipeline`.  
+Vous pouvez imaginer ça comme un conteneur pour votre application.  
+Il va contenir plusieurs applications (staging / prod ...)  
+Pour chaque applications vous pourrez link une branche repo github et y activer (ou pas) le deploiement automatique.  
+Chaque application permet d'installer des add-ons (ajout de base de données ou autres services externes). De mon côté, j'utilise tout le temps la version gratuite de `papertrail` qui permet d'avoir un log de ce qui se passe sur votre instance.  
+Vous retrouverez aussi la configuration de dynos (grossièrement, c'est ce qui permet a votre application de demarrer)
+C'est sur ce point que vous allez commencer à avoir des restrictions.
+
+- pas de metric
+- l'app est en ligne que lorsqu'elle est utilisée (elle aura un temps de réveil lors de l'accession à l'url)
+
+Il est tout à fait possible d'utiliser docker avec heroku
