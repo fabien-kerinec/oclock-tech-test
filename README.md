@@ -39,6 +39,8 @@ Concernant les packages utilisés, j'ai la aussi voulu en utiliser le moins poss
 | express      | v4.17.1 | Permet de créer un serveur web et aide la création d'api                                  |
 | mongoose     | v6.0.7  | Permet de définir gérer la connexion a la base de données et de génerer des schémas typés |
 | cors         | v2.8.5  | Permet de configurer les cors et de les utiliser comme middleware express                 |
+| http-error   | v2.8.5  | Permet de configurer des erreursvia leurs status                                          |
+| pug          | v2.8.5  | Permet d'utiliser un template pour créer des page html dynamiques                         |
 | node-sass    | v1.42.1 | Permet de compiler le scss vers du css classique                                          |
 | uuid         | v8.3.2  | Permet de génerer des uuid. C'est un format pour former des ids uniques                   |
 | dotenv       | v10.0.0 | Permet de configurer des informations sensibles, exemples les clefs d'API                 |
