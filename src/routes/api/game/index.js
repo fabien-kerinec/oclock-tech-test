@@ -39,4 +39,8 @@ router.post('/reveal', model.resource.reveal)
  */
 router.get('/leaderboard', model.resource.leaderboard)
 
+router.use(function (err, req, res, next) {
+  console.log(' test')
+  return next(err)
+})
 module.exports = router

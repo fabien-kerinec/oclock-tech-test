@@ -8,6 +8,7 @@ const cors = require('cors')
  * @namespace GameRoutes
  */
 const router = express.Router()
+router.use(cors())
 
 /**
  * Rends la vue de l'application sur l'url root.
@@ -21,8 +22,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
   res.sendFile('/index.html')
 })
-
-router.use(cors())
 //recupere les routes de l'api
 router.use('/api/', api)
 

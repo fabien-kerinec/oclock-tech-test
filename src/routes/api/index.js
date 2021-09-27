@@ -9,5 +9,8 @@ const game = require('./game')
 router.use(headers)
 
 router.use('/game', game)
-
+router.use(function (err, req, res, next) {
+  console.log(' test')
+  return next(err)
+})
 module.exports = router
