@@ -184,6 +184,24 @@ h1 {
     width: calc(4 * 75px + 4 * 4px);
   }
 }
+.counterPair {
+  width: calc(9 * 100px + 9 * 10px);
+  margin: 0 auto;
+  margin-top: 15px;
+  display: none;
+  p {
+    text-align: center;
+  }
+  &.display {
+    display: block;
+  }
+  @media (max-width: 1000px) {
+    width: calc(9 * 75px + 9 * 4px);
+  }
+  @media (max-width: 500px) {
+    width: calc(4 * 75px + 4 * 4px);
+  }
+}
 .progressBar {
   position: relative;
   height: 20px;
@@ -212,13 +230,6 @@ h1 {
   }
   @media (max-width: 1000px) {
     width: calc(9 * 75px + 9 * 4px);
-    .game {
-      .item {
-        width: 75px;
-        height: 75px;
-        margin: 2px;
-      }
-    }
   }
   @media (max-width: 500px) {
     width: calc(4 * 75px + 4 * 4px);

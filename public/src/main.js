@@ -15,6 +15,7 @@ window.onload = function () {
     document.querySelector('.introduction').classList.add('remove')
     document.querySelector('.board').classList.add('display')
     document.querySelector('.progressBar').classList.add('display')
+    document.querySelector('.counterPair').classList.add('display')
     init()
   })
 }
@@ -53,6 +54,15 @@ function turnCard() {
                 elm.classList.remove('turned')
               }
             })
+            if (res.cards.validArray.length > 2) {
+              document.querySelector('.counterPair p').innerHTML = `${
+                res.cards.validArray.length / 2
+              } / 18 paires trouvées`
+            } else {
+              document.querySelector('.counterPair p').innerHTML = `${
+                res.cards.validArray.length / 2
+              } / 18 paires trouvée`
+            }
           }
           // On traite l'ensemble des cartes qu'il faut retourner
           if (res.cards.oldArray.length > 0) {
@@ -96,6 +106,9 @@ function turnCard() {
             })
           }
         } else {
+          document.querySelector(
+            '.counterPair p'
+          ).innerHTML = `18 / 18 paires trouvées`
           if (res.cards.newArray.length > 0) {
             res.cards.newArray.map((card) => {
               const elm = document.querySelector(`.item[data-id="${card.id}"]`)
