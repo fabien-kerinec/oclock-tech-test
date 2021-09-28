@@ -32,6 +32,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
   // render the error page
+  // Pour etre sur que ce soit bien du html rendu en cas d'erreur je force le content type html
   res.setHeader('Content-type', 'text/html')
   res.status(err.status || 500)
   res.render('error', function (err, html) {
