@@ -13,7 +13,6 @@ db.on('connected', async () => {
   const data = await leaderboardSchema.find({})
   // ici je verifie s'il y a déjà des datas si c'est vide, j'insert des data par default pour l'exemple
   if (!data.length) {
-    console.log('seed')
     const newData = [{ time: 1000000 }, { time: 1200000 }, { time: 1500000 }]
     leaderboardSchema.insertMany(newData)
   }

@@ -1,12 +1,13 @@
 const Game = require('../../../services/Game')
 const Data = require('../../../services/Data')
 const leaderboardSchema = require('../../../database/Leaderboard')
+const createHttpError = require('http-errors')
 
 let model = {}
 model.collection = {}
 model.resource = {}
 /**
- * Fonction definissant ce qui va ce passer sur la route associé /api/game/
+ * Fonction definissant ce qui va ce passer sur la route associée /api/game/
  * @param {*} req
  * @param {*} res
  * @param {*} next
@@ -18,11 +19,10 @@ model.resource.create = (req, res, next) => {
   return res.json({
     game: GameInstance.id,
     timer: GameInstance.gameDuration,
-    full: GameInstance,
   })
 }
 /**
- * Fonction definissant ce qui va ce passer sur la route associé /api/game/reveal
+ * Fonction definissant ce qui va ce passer sur la route associée /api/game/reveal
  * @param {*} req
  * @param {*} res
  * @param {*} next
@@ -50,7 +50,7 @@ model.resource.reveal = async (req, res, next) => {
   }
 }
 /**
- * Fonction definissant ce qui va ce passer sur la route associé /api/game/leaderboard
+ * Fonction definissant ce qui va ce passer sur la route associée /api/game/leaderboard
  * @param {*} req
  * @param {*} res
  * @param {*} next

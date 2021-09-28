@@ -9,7 +9,7 @@ const express = require('express')
 const router = express.Router()
 
 /**
- * permet de creer de consommer une route /api/game.
+ * permet de creer et de consommer une route /api/game.
  * @name post/
  * @function
  * @memberof module:routers/~APIRoutes
@@ -19,7 +19,7 @@ const router = express.Router()
  */
 router.post('/', model.resource.create)
 /**
- * permet de creer de consommer une route /api/game/reveal.
+ * permet de creer et de consommer une route /api/game/reveal.
  * @name post/
  * @function
  * @memberof module:routers/~APIRoutes
@@ -29,7 +29,7 @@ router.post('/', model.resource.create)
  */
 router.post('/reveal', model.resource.reveal)
 /**
- * permet de creer de consommer une route /api/game/leaderboard.
+ * permet de creer et de consommer une route /api/game/leaderboard.
  * @name get/
  * @function
  * @memberof module:routers/~APIRoutes

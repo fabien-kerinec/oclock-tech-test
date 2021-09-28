@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 // parse application/x-www-form-urlencoded
 
-// recupere l'ensemble des route (api et view)
+// recupère l'ensemble des route (api et view)
 app.use(routes)
 
 // catch 404 and forward to error handler
@@ -27,8 +27,6 @@ app.use(({ next }) => {
 })
 
 app.use(function (err, req, res, next) {
-  console.log('test end', err.status)
-  console.log('test end', err.message)
   // set locals, only providing error in development
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
@@ -40,13 +38,12 @@ app.use(function (err, req, res, next) {
     if (err) {
       console.log(err)
     }
-    console.log(html)
     res.send(html)
   })
 })
 
-// Demarrage du server nodejs js via l'app express sur un port particulier
-// le port à une valeur par default en cas de non configuration
+// Demarrage du server nodejs js via l'app express sur un port particulié
+// le port a une valeur par default en cas de non configuration
 app.listen(process.env.PORT || 3001, () => {
   console.log(`your app is running on port ${process.env.PORT || 3001}`)
 })

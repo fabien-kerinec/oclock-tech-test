@@ -1,6 +1,6 @@
 # O'CLOCK TEST TECHNIQUE
 
-Dans ce repos, on retrouve ma proposition pour le tet technique pour le poste : `formateur JS fullstack`
+Dans ce repos, on retrouve ma proposition pour le test technique pour le poste : `formateur JS fullstack`
 
 ## DETAIL DU TEST
 

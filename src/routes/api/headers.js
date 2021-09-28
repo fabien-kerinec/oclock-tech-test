@@ -6,7 +6,7 @@ const headers = function apiHeaders({ res, next }) {
       'Origin, X-Requested-With, Content-Type, Accept, Platform, multipart/form-data',
     'Content-Type': 'application/json ',
     'X-Robots-Tag': 'noindex',
-    'X-Powered-By': 'MMD_Preview v.0',
+    'X-Powered-By': 'Fabienkerinec',
     'X-Api-Version': 0,
   })
   return next()
